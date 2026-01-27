@@ -19,13 +19,49 @@ function App() {
   const sumar = () => {
     if (!validarNumeros()) return;
     const resultadoSuma = parseFloat(numero1) + parseFloat(numero2);
-    setResultado(`Resultado de la suma: ${resutadoSuma}`);
+    setResultado(`Resultado de la suma: ${resultadoSuma}`);
   };
 
   const restar = () => {
     if (!validarNumeros()) return;
-    const resultadoesta = parseFloat(numero1) - parseFloat(numero2);
-    setResultado(`Resultado de la resta: ${resutadoResta}`);
+    const resultadoResta = parseFloat(numero1) - parseFloat(numero2);
+    setResultado(`Resultado de la resta: ${resultadoResta}`);
+  };
+
+  const multiplicar = () => {
+    if (!validarNumeros()) return;
+    const resultadoMultiplicacion = parseFloat(numero1) * parseFloat(numero2);
+    setResultado(`Resultado de la multiplicación: ${resultadoMultiplicacion}`);
+  };
+
+  const dividir = () => {
+    if (!validarNumeros()) return;
+    if (parseFloat(numero2) === 0) {
+      setResultado("Error: No se puede dividir entre cero");
+      return;
+    }
+    const resultadoDivision = parseFloat(numero1) / parseFloat(numero2);
+    setResultado(`Resultado de la división: ${resultadoDivision.toFixed(2)}`);
+  };
+
+  const potenciar = () => {
+    if (!validarNumeros()) return;
+    const resultadoPotencia = Math.pow(parseFloat(numero1), parseFloat(numero2));
+    setResultado(`Resultado de la potenciación: ${resultadoPotencia}`);
+  };
+
+  const raizCuadrada = () => {
+    if (numero1 === "") {
+      setResultado("Por favor ingrese el número");
+      return;
+    }
+    const num = parseFloat(numero1);
+    if (num < 0) {
+      setResultado("Error: No se puede calcular la raíz cuadrada de un número negativo");
+      return;
+    }
+    const resultadoRaiz = Math.sqrt(num);
+    setResultado(`Raíz cuadrada de ${num}: ${resultadoRaiz.toFixed(2)}`);
   };
 
   return (
@@ -53,6 +89,10 @@ function App() {
           <div className="botones">
             <button onClick={sumar}>Sumar</button>
             <button onClick={restar}>Restar</button>
+            <button onClick={multiplicar}>Multiplicar</button>
+            <button onClick={dividir}>Dividir</button>
+            <button onClick={potenciar}>Potenciación</button>
+            <button onClick={raizCuadrada}>Raíz Cuadrada</button>
           </div>
           {resultado && <div className="resultado">{resultado}</div>}
         </div>

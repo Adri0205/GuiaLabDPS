@@ -1,11 +1,11 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text } from "react-native";
+import { View, FlatList, StyleSheet, Text, Image } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 const DATA = [
-  { id: "1", title: "Toyota", src: require("./assets/Toyota.jpg") },
-  { id: "2", title: "Mazda", src: require("./assets/Mazda.jpg") },
-  { id: "3", title: "Mitsubishi", src: require("./assets/Mitsubishi.jpg") },
+  { id: "1", title: "Toyota", src: require("./src/img/toyota.jpg") },
+  { id: "2", title: "Mazda", src: require("./src/img/mazda.jpg") },
+  { id: "3", title: "Mitsubishi", src: require("./src/img/mitsubishi.jpeg") },
 ];
 
 const Item = ({ title, img }) => (
